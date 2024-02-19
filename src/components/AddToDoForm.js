@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-function AddToDoForm() {
+function AddToDoForm({addTodo}) {
+  const inputRef = useRef();
+
+  function submit()
+  {
+    const todo = inputRef.current.value;
+    addTodo(todo);
+  }
+
   return (
     <div>
         <label for="todo">New To Do: </label>
-        <input type="text" id="todo" name="todo" placeholder="Your todo"></input><br />
-        <button type='submit'>Add</button>
+        <input ref={inputRef} type="text" id="todo" name="todo" placeholder="Your todo"></input><br />
+        <button onClick={submit}>Add</button>
     </div>
   )
 }

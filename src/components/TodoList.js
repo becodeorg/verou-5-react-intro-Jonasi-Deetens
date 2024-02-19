@@ -1,13 +1,15 @@
 import React from 'react'
-import ToDo from './ToDo'
 
-function TodoList() {
+function TodoList({todos}) {
   return (
     <div>
         <h2>ToDos:</h2>
-        <ul className='todo-list'>
-            < ToDo />
-            < ToDo />
+        <ul>
+          {todos.map((todo) => (
+            <li>
+              <input type="checkbox" /> {todo}
+            </li>
+          ))}
         </ul>
     </div>
   )
