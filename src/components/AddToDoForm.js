@@ -5,8 +5,10 @@ function AddToDoForm({addTodo}) {
 
   function submit()
   {
-    const todo = inputRef.current.value;
-    addTodo(todo);
+    const todoInput = inputRef.current;
+    addTodo(todoInput.value);
+
+    todoInput.value = '';
   }
 
   return (
