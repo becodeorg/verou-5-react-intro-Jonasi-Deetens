@@ -1,13 +1,14 @@
 import React from 'react'
 
-function TodoList({todos}) {
+function TodoList({todos, removeTodo}) {
   return (
     <div>
         <h2>ToDos:</h2>
         <ul>
           {todos.map((todo) => (
-            <li>
-              <input type="checkbox" /> {todo}
+            <li key={todo.id}>
+              <input type="checkbox" checked={todo.completed} onChange={() => console.log('do')} /> {todo.title}
+              <button onClick={() => removeTodo(todo)}> X </button>
             </li>
           ))}
         </ul>
